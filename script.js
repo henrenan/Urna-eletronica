@@ -6,28 +6,56 @@ let lateral = document.querySelector('.d-1-right');
 let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
+let numero ='';
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
+
+    let numeroHtml =''; 
+
+    for (let i=0;i<etapa.numeros;i++) {
+        if (i === 0){
+            numeroHtml += '<div class="numero pisca"></div>'
+        } else {
+        numeroHtml += '<div class="numero"></div>';
+    }
+    }
 
     seuVotoPara.style.display = 'none';
     cargo.innerHTML = etapa.titulo;
     descricao.innerHTML='';
     aviso.style.display ='nome';
     lateral.innerHTML = '';
-    numeros.innerHTML = '';
+    numeros.innerHTML = numeroHtml;
+}
+function atualizaInterface() {
+        alert("finalizou a votação")
 }
 
 function clicou(n) {
-    alert("Clicou em "+n);
+    let elNumero = document.querySelector('.numero.pisca');
+    if(elNumero !== null) {
+        elNumero.innerHTML = n;
+        numero = '${numero}${n}';
+
+        elNumero.classList.remove('pisca');
+            if(elNumero.nextElementSibling !== null){ 
+        elNumero.nextElementSibling.classList.add('pisca'); 
+        } else{
+            atualizaInterface();
+        }
+    }
 }
 function branco() {
-    alert("Clicou em BRANCO");
+    alert("Clicou em BRANCO!");
 }
 function corrige() {
-    alert("Clicou em CORRIGE");
+    alert("Clicou em CORRIGE!");
 }
 function confirma() {
-    alert("Clicou em CONFIRMA");
+    alert("Clicou em CONFIRMA!");
 }
-//parei no min 1:07
+
+comecarEtapa();
+
+//parei no 1:21
