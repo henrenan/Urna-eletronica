@@ -6,16 +6,16 @@ let etapas = [
             {
             numero: 38111,
             nome: 'Fulano de Tal',
-            partido:
-            fotos[
-                { url:'./imagens/renan.jpg', legenda: 'Vereador'}
+            partido: 'ABC',
+            fotos:[
+                { url: '', legenda: 'Vereador'}
             ] 
         },
         {
             numero: 77222,
             nome: 'Ciclano da Silva',
-            partido:
-            fotos[{ url:'./imagens/hadassa.jpg', legenda: 'Vereador'}
+            partido: 'CDE',
+            fotos:[{ url:'', legenda: 'Vereador'}
             ] 
             },
     ]

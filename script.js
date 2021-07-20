@@ -7,6 +7,17 @@ let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
 
+function comecarEtapa() {
+    let etapa = etapas[etapaAtual];
+
+    seuVotoPara.style.display = 'none';
+    cargo.innerHTML = etapa.titulo;
+    descricao.innerHTML='';
+    aviso.style.display ='nome';
+    lateral.innerHTML = '';
+    numeros.innerHTML = '';
+}
+
 function clicou(n) {
     alert("Clicou em "+n);
 }
@@ -19,3 +30,4 @@ function corrige() {
 function confirma() {
     alert("Clicou em CONFIRMA");
 }
+//parei no min 1:07
