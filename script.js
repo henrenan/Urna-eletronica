@@ -9,7 +9,7 @@ let etapaAtual = 0;
 let numero ='';
 
 function comecarEtapa() {
-    let etapa = etapas[etapaAtual];
+    let etapa = etapa[etapaAtual];
 
     let numeroHtml =''; 
 
@@ -29,14 +29,15 @@ function comecarEtapa() {
     numeros.innerHTML = numeroHtml;
 }
 function atualizaInterface() {
-        alert("finalizou a votação")
+        let etapa = etapa[etapaAtual];
+        
 }
 
 function clicou(n) {
     let elNumero = document.querySelector('.numero.pisca');
     if(elNumero !== null) {
         elNumero.innerHTML = n;
-        numero = '${numero}${n}';
+        numero = `${numero}${n}`;
 
         elNumero.classList.remove('pisca');
             if(elNumero.nextElementSibling !== null){ 
@@ -58,4 +59,4 @@ function confirma() {
 
 comecarEtapa();
 
-//parei no 1:21
+//arei no 1:21
