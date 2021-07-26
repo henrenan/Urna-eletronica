@@ -7,11 +7,15 @@ let numeros = document.querySelector('.d-1-3');
 
 let etapaAtual = 0;
 let numero ='';
+let votoBranco = false;
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
 
-    let numeroHtml =''; 
+    let numeroHtml ='';
+    numero = '';
+    let votoBranco = false;
+     
 
     for (let i=0;i<etapa.numeros;i++) {
         if (i === 0){
@@ -51,7 +55,7 @@ function atualizaInterface() {
         } else {
             seuVotoPara.style.display = 'block';
             aviso.style.display ='block';
-            descricao.innerHTML = '<div class="aviso--grande">VOTO NULO</div>';
+            descricao.innerHTML = '<div class="aviso--grande pisca">VOTO NULO</div>';
         }
         }
 
@@ -71,10 +75,18 @@ function clicou(n) {
     }
 }
 function branco() {
-    alert("Clicou em BRANCO!");
+    if(numero === ''){
+        votoBranco == true;
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        numeros.innerHTML = '';
+        descricao.innerHTML = '<div class="aviso--grande pisca">VOTO EM BRANCO</div>';
+    } else {
+        alert("Por favor, clicar em CORRIGE para votar em BRANCO")
+    }
 }
 function corrige() {
-    alert("Clicou em CORRIGE!");
+    comecarEtapa();
 }
 function confirma() {
     alert("Clicou em CONFIRMA!");
