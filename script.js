@@ -89,7 +89,13 @@ function corrige() {
     comecarEtapa();
 }
 function confirma() {
-    alert("Clicou em CONFIRMA!");
+    let etapa = etapas[etapaAtual];
+
+    if(votoBranco === true) {
+        console.log("Confirmando voto em BRANCO...");
+    } else if(numero.length === etapa.numeros) {
+        console.log("Confirmando como "+numero);
+    }
 }
 
 comecarEtapa();
