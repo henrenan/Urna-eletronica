@@ -92,7 +92,7 @@ function confirma() {
     let etapa = etapas[etapaAtual];
 
     if(votoBranco === true) {
-        console.log("Confirmando voto em BRANCO...");
+        console.log("Confirmando como BRANCO...");
     } else if(numero.length === etapa.numeros) {
         console.log("Confirmando como "+numero);
     }
