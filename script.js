@@ -8,6 +8,7 @@ let numeros = document.querySelector('.d-1-3');
 let etapaAtual = 0;
 let numero ='';
 let votoBranco = false;
+let votos = [];
 
 function comecarEtapa() {
     let etapa = etapas[etapaAtual];
@@ -80,15 +81,14 @@ function clicou(n) {
     }
 }
 function branco() {
-    if(numero = ''){
+        numero = '';
         votoBranco = true;
+
         seuVotoPara.style.display = 'block';
         aviso.style.display = 'block';
         numeros.innerHTML = '';
         descricao.innerHTML = '<div class="aviso--grande pisca">VOTO EM BRANCO</div>';
-    } else {
-        alert("Por favor, clicar em CORRIGE para votar em BRANCO")
-    }
+        lateral.innerHTML = '';
 }
 function corrige() {
     comecarEtapa();
@@ -96,25 +96,29 @@ function corrige() {
 function confirma() {
     let etapa = etapas[etapaAtual];
 
-    let votoConfirmado = false; 
+    let votoConfirmado = false;
 
     if(votoBranco === true) {
         votoConfirmado = true;
-        console.log("Confirmado como BRANCO...");
-
-    } else if(numero.length === etapa.numeros) {
-        votoConfirmado = true;
-        console.log("Confirmando como "+numero);
-    }
-
-    if(votoConfirmado) {
-        etapaAtual++;
-        if (etapas[etapaAtual] !== undefined) {
-            comecarEtapa();
-         } else {
-            console.log ("FIM!");
-         }
-
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: 'branco'
+        });
+        } else if (numero.length === etapa.numeros) {
+            votoConfirmado = true;
+            votos.push({
+                etapa: etapas[etapaAtual].titulo,
+                voto: numero 
+            });
+        }
+        if(votoConfirmado){
+            etapaAtual++;
+            if(etapas[etapaAtual] !== undefined){
+                comecarEtapa();
+            } else{
+                document.querySelector('.tela').innerHTML = '<div class="aviso--gigante pisca">FIM!</div>';
+                console.log(votos);
+            }
         }
     }
 
